@@ -1,5 +1,6 @@
-from turtle import Screen
-import turtle
+from turtle import Screen,Turtle
+from screen_split import ScreenSplit
+from sliders import Sliders
 
 # initializations
 screen=Screen()
@@ -11,19 +12,14 @@ screen.bgcolor("black")
 screen.title("Pong Arcade Game")
 screen.tracer(0)
 
-# screen splitting 
-screen_split=turtle.Turtle()
-screen_split.penup()
-screen_split.color("white")
-screen_split.hideturtle()
-# screen_split.goto(x=-1.0,y=-2.0)
-screen_split.pensize(15)
-screen_split.setheading(90)
-while True:
-    screen_split.pendown()
-    screen_split.fd(10)
-    screen_split.penup()
-    screen_split.fd(10)
+# spliting screen
+split=ScreenSplit()
+split.split()
+
+#setting default sliders position
+sliders=Sliders()
+sliders.default_pos()
+
 
 screen.update()
 
