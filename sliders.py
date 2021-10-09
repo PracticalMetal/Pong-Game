@@ -1,35 +1,32 @@
-from turtle import Turtle,Screen
+from turtle import Turtle, Screen
 
-screen=Screen()
+screen = Screen()
+
 
 class Sliders:
     def __init__(self):
-        self.segments_one=[]
-        self.segments_two=[]
-        
+        self.slider = Turtle()
 
-    def default_pos(self):
-        
-        x_cor=screen.window_width()/2
-        y_cor=90
-        for i in range(14):
-            if i<7:
-                new_obj=Turtle("square")
-                new_obj.color("white")
-                new_obj.penup()
-                new_obj.goto(x=-x_cor+30,y=y_cor)
-                y_cor-=20
-                self.segments_one.append(new_obj)
-            
-            else:
-                new_obj=Turtle("square")
-                new_obj.color("white")
-                new_obj.penup()
-                new_obj.goto(x=x_cor-30,y=y_cor)
-                y_cor+=20
-                self.segments_one.append(new_obj)
-                # reversing the list to make both the lists homogeneous
-                self.segments_two=self.segments_two[::-1]
+    def default_pos(self, x_cor):
 
-    
-        
+        if x_cor < 0:
+            self.slider.shape("square")
+            self.slider.color("white")
+            self.slider.shapesize(stretch_len=1, stretch_wid=6)
+            self.slider.penup()
+            self.slider.goto(x=x_cor+30, y=0)
+
+        else:
+            self.slider.shape("square")
+            self.slider.color("white")
+            self.slider.shapesize(stretch_len=1, stretch_wid=6)
+            self.slider.penup()
+            self.slider.goto(x=x_cor-30, y=0)
+
+
+
+    def move_up(self):
+        self.slider.goto(self.slider.xcor(),self.slider.ycor()+20)
+
+    def move_down(self):
+        self.slider.goto(self.slider.xcor(),self.slider.ycor()-20)
