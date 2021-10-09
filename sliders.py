@@ -26,7 +26,9 @@ class Sliders:
 
 
     def move_up(self):
-        self.slider.goto(self.slider.xcor(),self.slider.ycor()+20)
+        if self.slider.ycor()<screen.window_height()/2-60:
+            self.slider.goto(self.slider.xcor(),self.slider.ycor()+20)
 
     def move_down(self):
-        self.slider.goto(self.slider.xcor(),self.slider.ycor()-20)
+        if self.slider.ycor()>-1*(screen.window_height()/2)+85:
+            self.slider.goto(self.slider.xcor(),self.slider.ycor()-20)

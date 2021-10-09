@@ -1,4 +1,2 @@
-screen_split.pendown()
-screen_split.fd(1000)
-screen_split.penup()
-screen_split.fd(1000
+if ball.ball.distance(slider_one)<50 or ball.ball.distance(slider_two)<50:
+    #     ball.multiplier_x*=1
